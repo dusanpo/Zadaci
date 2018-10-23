@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function opseg(pocetak, kraj) {
+            var izlaz = "";
+            for (var i = pocetak; i <= kraj; i++) {
+                izlaz += i + " ";
+            }
+
+            return izlaz;
+        }
+        console.log(opseg(6, 10));
+        //funkcija ispisuje brojeve od 6 do 10 
+
+
+
+        function opsegNeparnih(pocetak, kraj) {
+            var izlaz = "";
+            for (var i = pocetak; i <= kraj; i++) {
+                if (i % 2 == 1) {   //ako napišemo if(i%2==0)onda će izbaciti parne brojeve
+                    izlaz += i + " ";
+                }
+            }
+            return izlaz;
+        }
+        console.log(opsegNeparnih(10, 16));
+        //ispisuje neparne brojeve od 10 do 16
+
+
+
+        function manjiBroj(broj1, broj2) {
+            if (broj1 < broj2) {
+                return broj1;
+            }
+            else {
+                return broj2;
+            }
+        }
+        manjiBroj();
+        //ispisuje manji broj od dva ponuđena broja
+
+
+
+
+        function veciBroj(broj1, broj2) {
+            if (broj1 > broj2) {
+                return broj1;
+            }
+            else {
+                return broj2;
+            }
+        }
+        veciBroj();
+        //ispisuje veci broj od dva ponuđena broja
+
+
+
+        function obimKruga(r) {
+            var PI = 3.14;
+            return 2 * r * PI;
+        }
+        obimKruga();
+        // izracunava obim kruga
+
+
+
+
+        function evroUDinar(dinar) {
+            var eur = 118;
+            return eur * dinar;
+        }
+        evroUDinar();
+        // konvertuje evre u dinare
+
+
+
+        function dinarUEvro(dinar) {
+            var eur = 118;
+            return dinar / eur;
+        }
+        dinarUEvro();
+        // konvertuje dinare u evre
+
+
+
+        function kilobajteUMegabajte(kilobajt) {
+            var megabajt = 1024;
+
+            return kilobajt / megabajt;
+        }
+        kilobajteUMegabajte();
+        //konvertuje kilobajte u megabajte
+
+
+
+        function pomnozi(prvi, drugi) {
+            var rezultat = 0;
+            for (var i = 0; i < prvi; i++) {
+
+                rezultat += drugi;
+            }
+            console.log(rezultat);
+        }
+        pomnozi();
+        // množi dva broja bez korišćenja * operatora
+
+
+
+
+        function randomPozadina() {
+            var green = Math.floor(Math.random() * 255);
+            var red = Math.floor(Math.random() * 255);
+            var blue = Math.floor(Math.random() * 255);
+            document.body.style.backgroundColor = "rgb(" + green + "," + red + "," + blue + ")";
+        }
+        randomPozadina();
+        //funkcija koja postavlja random boju pozadine  
+
+
+
+
+        function kolikoDanaSamStar(dan, mesec, godina) {
+            var danDanas = 15;
+            var mesecDanas = 10;
+            var godinaDanas = 2018;
+            var danaSad = godinaDanas * 365 + mesecDanas * 30 + danDanas;
+            var danaNekad = godina * 365 + mesec * 30 + dan;
+            return danaSad - danaNekad;
+        }
+        kolikoDanaSamStar();
+        //ispisuje koliko dana smo stari kad mu kažemo datum rođenja
+
+
+
+
+        function kolikoImamGodina(godina) {
+            var godinaDanas = 2018;
+            return godinaDanas - godina;
+        }
+        kolikoImamGodina();
+        //ispisuje koliko godina imamo kad kažemo kada smo rođeni
+
+
+
+
+        function kadSmoRodjeni(datum) {
+            var godinaDanas = 2018;
+            return godinaDanas - datum;
+        }
+        kadSmoRodjeni();
+        //kaže kad smo rođeni kad mu kažemo koliko imamo godina
+
+
+
+
+        function stepenovanje(broj, stepen) {
+            var rezultat = 1;
+            for (i = 0; i < stepen; i++) {
+                rezultat *= broj;
+            }
+            return rezultat;
+        }
+        stepenovanje();
+        // stepenovanje bez korišćenja Math.pow
+
+
+
+
+        function deljivSaSedam(broj) {
+            for (i = 0; i <= broj; i += 7)
+                if (i == broj) return "Jeste deljiv";
+
+            return "Nije deljiv";
+        }
+        deljivSaSedam();
+        //proveravamo da li je broj deljiv sa 7
+
+
+
+
+
+        function dobaDana(sati) {
+            var trenutnoSati = sati;
+            if (trenutnoSati > 4 && trenutnoSati < 12) return "Dobro jutro";
+
+            else if (trenutnoSati > 11 && trenutnoSati < 19) return "Dobar dan";
+
+            else if (trenutnoSati > 18 && trenutnoSati < 24) return "Dobro veče";
+
+            return "Spavam!";
+
+        }
+        dobaDana();
+        // Pozdrav u zavisnosti od toga koje je doba dana.
+
+
+
+
+        function randomBroj(x, y) {
+            return x + Math.floor(Math.random() * (y + 1 - x));
+        }
+        randomBroj(5, 20);
+        // Vraća random broj između 5 i 20(uključujući i 20).
+
+
+
+
+        function daLiJeSamoglasnik(slovo) {
+            slovo = slovo.toLowerCase();
+            if (slovo === "a" || slovo === "e" || slovo === "i" || slovo === "o" || slovo === "u") {
+                return true;
+            }
+            return false;
+        }
+        function samoglasnici(text) {
+            var brojSamoglasnika = 0;
+            for (i = 0; i < text.length; i++) {
+                if (daLiJeSamoglasnik(text.charAt(i))) {
+                    brojSamoglasnika++
+                }
+            }
+            return brojSamoglasnika
+        }
+        samoglasnici("");
+//ispisuje koliko ima samoglasnika u prosleđenom tekstu
+
+
+
+
+
+    </script>
+</body>
+
+</html>
