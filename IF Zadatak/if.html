@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Proveri broj</h3>
+    <div id="random_broj"> </div><br>
+    <div id="odgovor"></div><br>
+    <input type="button" value="Klikni" id="random_br"><br><br>
+    <hr>
+
+
+    <h3>Paran ili neparan</h3>
+    <div id="random_broj1">
+    </div><br>
+    <div id="odgovor1"></div><br>
+    <input type="button" value="Proveri" id="random_br1"><br><br>
+    <hr>
+
+
+    <h3>Koliko imaš godina?</h3>
+    <input type="number" id="godine"><br>
+    <div id="provera"></div><br>
+    <input type="button" value="Proveri" id="datum"><br><br>
+    <hr>
+
+
+
+    <h3>Zdravo!</h3>
+    <button id="pozdrav">Poruka</button><br><br>
+    <div id="Pozdrav"></div>
+    <br>
+    <hr>
+
+
+    <h3>Ime</h3>
+    <button id="provereno">Provera</button>
+    <div id="ispis"></div><br><br>
+    <hr>
+
+
+    <script>
+
+        document.getElementById("random_br").addEventListener("click", function () {
+            var randomNumber = Math.ceil(Math.random() * 10);
+            document.getElementById("random_broj").innerHTML = `Broj ${randomNumber}`;
+
+            if (randomNumber < 3) {
+                document.getElementById("odgovor").innerHTML = "Broj je manji od 3"
+
+            }
+            else if (randomNumber == 3) {
+                document.getElementById("odgovor").innerHTML = "Broj je jednak 3"
+            }
+            else {
+                document.getElementById("odgovor").innerHTML = "Broj je veći od 3"
+            }
+        });
+
+
+
+        document.getElementById("random_br1").addEventListener("click", function () {
+            var randomNumber = Math.ceil(Math.random() * 10);
+            document.getElementById("random_broj1").innerHTML = `Broj ${randomNumber}`;
+            if (randomNumber % 2 == 0) {
+                document.getElementById("odgovor1").innerHTML = "Broj je paran";
+
+            }
+            else {
+                document.getElementById("odgovor1").innerHTML = "Broj je neparan";
+
+            }
+
+        });
+
+
+        document.getElementById("datum").addEventListener("click", function () {
+            var godina = document.getElementById("godine").value;
+            if (godina < 18) {
+                document.getElementById("provera").innerHTML = "Zabranjen pristup!";
+            }
+            else {
+                document.getElementById("provera").innerHTML = "Dozvoljen pristup";
+            }
+        });
+
+
+        document.getElementById("pozdrav").addEventListener("click", function () {
+            var datum = new Date();
+            var sati = datum.getHours();
+            if (sati > 4 && sati < 12) {
+                document.getElementById("Pozdrav").innerHTML = "Dobro jutro!";
+            }
+            else if (sati > 11 && sati < 19) {
+                document.getElementById("Pozdrav").innerHTML = "Dobar dan!";
+            }
+            else {
+                document.getElementById("Pozdrav").innerHTML = "Dobro veče!";
+            }
+        });
+
+
+        document.getElementById("provereno").addEventListener("click", function () {
+            var upisanoIme = prompt("Kako se zoveš?");
+
+            if (upisanoIme == "Igor") {
+                alert("Zdravo Igore!");
+            } else if (upisanoIme == "Uroš") {
+                alert("Zdravo Uroše!");
+            } else if (upisanoIme == "Mia") {
+                alert("Zdravo Mia!");
+            } else if (upisanoIme == "Sanja") {
+                alert("Zdravo Sanja!");
+            } else if (upisanoIme == "Miloš") {
+                alert("Zdravo Miloše!");
+            } else if (upisanoIme == "Marko") {
+                alert("Zdravo Marko!");
+            } else if (upisanoIme == "Žarko") {
+                alert("Zdravo Žarko!");
+            } else if (upisanoIme == "Tadija") {
+                alert("Zdravo Tadija!");
+            } else if (upisanoIme == "Mitar") {
+                alert("Zdravo Mitre!")
+            } else {
+                alert("Nisi mi poznat");
+
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
