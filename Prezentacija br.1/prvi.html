@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+</head>
+
+<body>
+    <h2>Event atributi</h2>
+    &nbsp;&nbsp;&nbsp;Event atributi se koriste kada hoćemo na neku akciju na elementu izvršimo neki javascript kod.<br>
+    Neki od event atributa su:
+
+    <ul>
+        <li>onfocus</li>
+        <li>onblur</li>
+        <li>oncontextmenu</li>
+        <li>onclick</li>
+        <li>onload</li>
+        <li>onmouseover</li>
+        <li>onsubmit</li>
+    </ul>
+
+    U primeru za <strong>onfocus</strong>,polje za unos teksta menja boju kad se klikne na njega,ukazuje da je element
+    u fokusu.<br><br>
+    Tekst:
+    <input type="text" onfocus="focusFun(this)">
+
+
+    <script>
+
+        function focusFun(x) {
+            x.style.backgroundColor = "blue";
+        }  
+    </script>
+    <br><br>
+    <strong>Onblur</strong> se javlja kada element izgubi fokus.To se dešava kada korisnik aktivira neki drugi
+    element,najcešće kada
+    klikne na neki drugi element.<br><br>
+    Tekst:
+    <input type="text" id="ime">
+
+    <script>
+
+        function blurFun() {
+            document.getElementById("ime").innerHTML = "";
+        }
+
+
+    </script>
+
+    <br><br>
+    <strong>Oncontextmenu</strong> se izvršava pritiskanjem desnog klika miša,kao u primeru ispod.
+    <p oncontextmenu="contextmenuFun()"><i>Desni klik</i></p>
+
+
+    <script>
+
+        function contextmenuFun() {
+            alert("Kliknuo si!");
+        }
+
+    </script>
+
+    <br>
+    <h2>SetInterval</h2>
+    &nbsp;&nbsp;&nbsp;Pomoću <strong>setInterval</strong> pravimo tajmere za izvršavanje akcija,koja se izvršava sve
+    dok je ne zaustavimo.
+    Funkcija prihvata dva parametra.<br>Prvi parametar je ono što hoćemo da se izvrši napisano kao funkcija,drugi
+    parametar je broj
+    milisekundi posle kojeg hoćemo da se akcija desi(1000 = 1 sekunda).<br>
+    Najčešće se piše sa anonimus funkcijom.<br><br>
+
+    <button onclick="setIntervalFun()">Klikni</button>
+
+    <script>
+        function setIntervalFun() {
+            setInterval(function () {
+
+                alert("Zdravo");
+            }, 2000);
+        }
+    </script>
+    
+    <br><br><br>
+    <h2>LocalStorage</h2>
+    &nbsp;&nbsp;&nbsp;LocalStorage služi da u njemu čuvamo i skladištimo podatke vezano za sajt.Postoje dva parametra,key i vrednost.<br>
+    Razlika između localStorage i sessionStorage je što se sessionStorage briše nakon zatvaranja browsera dok
+    localStorage ostaje i nakon zatvaranja browsera.<br>
+    Neke od metoda koje postoje u localeStorage su:
+
+    <ul>
+        <li><strong>setItem();</strong> - Informacije se skladište u parovima,ime odnosno key i vrednost.Dodaje se key i vrednost.</li>
+        <li><strong>getItem();</strong> - Vraća vrednost iz localStorage.Prihvata samo jedan parametar.</li>
+        <li><strong>removeItem();</strong> - Uklanja key iz localStorage.</li> 
+        <li><strong>clear();</strong> - Briše ceo localStorage. </li>
+    </ul>
+
+&nbsp;&nbsp;&nbsp;Ovde smo za primer uzeli igricu:"brzi prsti",gde se dva igrača takmiče ko će kliktanjem pre stići do broja 15. <br>
+Player 1 koristi miš a Player 2 koristi bilo koje dugme na tastaturi.<br>
+Pomoću localStorače možemo sačuvati podatke o igrici i videti ko je bio zadnji pobednik.<br><br>
+
+    <button id="dugme1">Player1</button>
+    <div id="score1"></div>
+    <button id="dugme2">Player2</button>
+    <div id="score2"></div>
+
+    <script>
+        var dugme1 = document.getElementById("dugme1");
+
+        var score1 = document.getElementById("score1");
+        var score2 = document.getElementById("score2");
+        var i = 0;
+        var j = 0;
+        dugme1.addEventListener('click', function () {
+            score1.innerHTML = i;
+            i++;
+            if (i == 16) {
+                alert("Pobednik je Player 1");
+
+                localStorage.setItem("Pobednik", "1");
+            }
+
+        }
+        );
+
+        addEventListener("keydown", function () {
+            score2.innerHTML = j;
+            j++;
+            if (j == 16) {
+                alert("Pobednik je Player 2");
+                localStorage.setItem("Pobednik", "2");
+            }
+
+        }
+        );
+
+        if (localStorage.getItem("Pobednik") == "1") {
+            document.write("Prethodnu igru je dobio Player 1");
+
+        } else if (localStorage.getItem("Pobednik") == "2") {
+            document.write("Prethodnu igru je dobio Player 2");
+
+        }
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
