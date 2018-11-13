@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+
+            background-color: rgb(220, 195, 180);
+        }
+
+
+        #wrap {
+            width: 720px;
+        }
+
+        #wrap1 {
+            width: 720px;
+        }
+
+
+        .left {
+            background-color: rgb(157, 201, 209);
+            border-style: inset;
+            padding: 10px;
+            width: 300px;
+            height: 150px;
+            text-align: justify;
+            color: rgb(133, 51, 153);
+            float: left;
+        }
+
+        .right {
+            background-color: rgb(157, 201, 209);
+            border-style: inset;
+            padding: 10px;
+            width: 300px;
+            height: 150px;
+            text-align: justify;
+            color: rgb(133, 51, 153);
+            float: right;
+        }
+
+        .first {
+            background-color: rgb(157, 201, 209);
+            border-style: inset;
+            padding: 10px;
+            width: 300px;
+            height: 170px;
+            text-align: justify;
+            color: rgb(133, 51, 153);
+            float: left;
+        }
+
+
+        .second {
+            background-color: rgb(157, 201, 209);
+            border-style: inset;
+            padding: 10px;
+            width: 300px;
+            height: 170px;
+            text-align: justify;
+            color: rgb(133, 51, 153);
+            float: right;
+        }
+
+        .third {
+            background-color: rgb(157, 201, 209);
+            border-style: inset;
+            padding: 10px;
+            width: 560px;
+            height: 1020px;
+            text-align: justify;
+            color: rgb(133, 51, 153);
+            float: left;
+        }
+
+        .fourth {
+            background-color: rgb(157, 201, 209);
+            border-style: inset;
+            padding: 10px;
+            width: 500px;
+            height: 90px;
+            text-align: justify;
+            color: rgb(133, 51, 153);
+            float: left;
+        }
+
+
+
+        h1 {
+            text-align: center;
+        }
+
+
+        p {
+            font-size: 19px;
+        }
+
+        span {
+            color: green;
+        }
+
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Promenljive</h1><br>
+    <p>&nbsp;&nbsp;&nbsp;Promenljive koristimo da ne bismo istu vrednost pisali više puta,<br>
+        kao i da bismo mogli da pratimo o kom objektu se radi čak i kada mu se vrednost promeni.<br><br>
+        Razlikujemo <strong>globalne</strong> i <strong>lokalne</strong> promenljive.<br>
+        Globalne promenljive su dostupne u celom programu,dok su lokalne promenljive definisane unutar funkcije i neće
+        biti dostupne van funkcije.
+    </p>
+
+    <p><strong>Primer globalne promenljive:
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
+            Primer lokalne promenljive:
+
+        </strong></p>
+
+
+
+    <div id="wrap">
+        <div class="left">
+            <strong>var tekst = "Zdravo"; <br><br>
+                function ispis(){<br><br>
+                alert(tekst); <br><br>
+                }<br>
+                ispis();
+            </strong>
+        </div>
+
+        <div class="right">
+            <strong>function sabiranje(){<br><br>
+                var a =10;<br>
+                var b = 30;<br><br>
+                return a+b; <br>
+                }<br>
+                console.log(sabiranje());
+            </strong>
+        </div>
+    </div>
+    <div class="clear">
+
+    </div>
+
+
+    <br><br>
+    <hr>
+    <br>
+    <h1>JSON</h1><br>
+    <p>&nbsp;&nbsp;&nbsp;JSON(JavaScript Object Notation) je format koji dosta podseća na javascript objekte.<br>Javascript
+        objekte možemo konvertovati
+        u JSON i možemo
+        ih konvertovati nazad iz JSON-a u objekat.</p>
+
+    <p><strong>Primer Javascript objekta:
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;
+            Isti primer konvertovan u JSON:
+
+        </strong></p>
+
+    <div id="wrap1">
+        <div class="first">
+            <strong> var tipoviPodataka = {<br>
+                a : 7,<br>
+                b : true,<br>
+                c : {a : "b"},<br>
+                d : "String",<br>
+                e : [1,2,3]<br>
+                };
+            </strong>
+        </div>
+        <div class="second">
+
+            <strong>{<br>
+                "a" : 7,<br>
+                "b" : true,<br>
+                "c" : {<br>
+                "a" : "b"<br>
+                },<br>
+                "d" : "String",<br>
+                "e" : [1,2,3]<br>
+                }
+
+            </strong>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <p>Razlika između JSON i Javascript objekta je što kod JSON-a imamo navodnike oko ključeva.</p>
+
+    <div class="fourth">
+        <strong>
+            var jsonString3 = JSON.stringify(tipoviPodataka);<br><br>
+            console.log(jsonString3);<br>
+        </strong>
+        <span> // Konvertovanje iz Javascript objekta u JSON.</span>
+
+
+
+    </div>
+    <div class="clear"></div>
+    <br>
+    <hr>
+    <br>
+    <h1>Math. objekat</h1><br>
+    <p>&nbsp;&nbsp;&nbsp;Math.objekat nudi mnoge metode koje možemo da koristimo pri izračunavanju različitih
+        matematičkih operacija.<br>
+        Neke od metoda Math.objekata su:</p>
+    <ul>
+        <li><strong>Math.abs</strong></li>
+        <li><strong>Math.pow</strong></li>
+        <li><strong>Math.round</strong></li>
+        <li><strong>Math.sqrt</strong></li>
+        <li><strong>Math.ceil</strong></li>
+        <li><strong>Math.floor</strong></li>
+        <li><strong>Math.min</strong></li>
+        <li><strong>Math.max</strong></li>
+        <li><strong>Math.random</strong></li>
+        <li><strong>Math.PI</strong></li>
+    </ul>
+
+    <p><strong>Primeri:</strong></p>
+
+
+    <div class="third">
+        <strong>
+            function obimKruga(r) {<br><br>
+            return 2 * r * Math.PI;<br><br>
+            }<br>
+            obimKruga(); </strong> <span>// Math.PI vraća broj PI pomoću kojeg izračunavamo obim kruga</span>
+        <br><br>
+        <hr>
+        <br>
+        <strong>
+            function randomBroj(x, y) {<br><br>
+            return Math.floor(Math.random() * (y - x)) + x;<br><br>
+            }<br>
+            randomBroj();</strong><span> // Vraća random broj imeđu x i y</span><br>
+        <span>// Math.floor zaokružuje broj na dole, Math.random vraća random broj od 0 do 1</span>
+        <br><br>
+        <hr>
+        <br>
+        <strong>console.log(Math.ceil(6.4));</strong><br>
+        <span> //Math.ceil zaokružuje broj na gore,tj.vraća prvi veći ili jednak celi broj</span>
+        <br><br>
+        <hr>
+        <br>
+        <strong>
+            function razlika(a, b) {<br><br>
+            return Math.abs(a - b);<br><br>
+            }<br>
+
+            console.log(razlika(2, 6));</strong><br>
+        <span>// Math.abs vraća apsolutnu vrednost nekog broja.<br>
+            // Negativan broj pretvara u pozitivan,a pozitivne brojeve ne menja.
+        </span>
+        <br><br>
+        <hr>
+        <br>
+
+        <strong>
+            function duzinaHipotenuzePravouglogTrougla(a, b) {<br><br>
+            return Math.sqrt((a * a) + (b * b));<br><br>
+            }<br>
+
+            console.log(duzinaHipotenuzePravouglogTrougla(5, 8));</strong><br>
+        <span>// Math.sqrt računa kvadratni koren nekog broja.</span>
+        <br><br>
+        <hr>
+        <br>
+
+        <strong>
+
+            document.write(Math.pow(5, 3));
+        </strong><span> // Math.pow stepenuje broj</span><br>
+        <span>// Ima dva parametra,drugi parametar kaže za koji stepen treba povećati prvi parametar.</span>
+        <br><br>
+        <hr>
+        <br>
+
+        <strong>
+            console.log(Math.max(2,28,24,15));
+        </strong><span> // Od preosleđenih brojeva vraća najveći.</span><br><br>
+        <strong>
+            console.log(Math.min(2,28,24,15));
+        </strong><span> // Od prosleđenih brojeva vraća najmanji.</span>
+
+
+
+    </div>
+
+    <div class="clear"></div>
+
+</body>
+
+</html>
