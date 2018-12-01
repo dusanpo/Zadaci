@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+
+    <style>
+        * {
+            font-family: Monospace;
+
+        }
+
+        body {
+            background-color: rgb(220, 195, 180);
+        }
+
+        .first {
+            box-shadow: 6px 10px 15px 10px rgb(39, 20, 20);
+            background-color: rgb(157, 201, 209);
+            border-style: inset;
+            padding: 30px;
+            height: 13100px;
+            text-align: justify;
+            color: rgb(133, 51, 153);
+            margin-top: 50px;
+            margin-left: 130px;
+            margin-right: 130px;
+            font-size: 19px;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+            font-size: 47px;
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+            font-size: 38px;
+        }
+
+        h3 {
+            color: rgb(214, 22, 22);
+            font-size: 27px;
+        }
+
+
+        p {
+
+            font-size: 20px;
+            color: black;
+        }
+
+        span {
+            color: green;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first">
+
+        <h1>Nizovi</h1>
+
+        <p>&nbsp;&nbsp;&nbsp;Niz je struktura koju koristimo
+            da sačuvamo više vrednosti u jednoj promenljivoj.
+            Nizovima se pristupa preko rednog broja odnosno "indeksa".
+            U Javascriptu prvi elemenat niza uvek je sa indeksom 0,drugi je sa indeksom 1,treći sa indeksom 2 itd.<br>
+            Svakom elementu niza pristupamo preko njegovog indeksa koji navodimo u uglastim zagradama<br>
+            (a[1] - elemenat niza <strong>a</strong> sa indeksom 1,niz ima dva elementa),<br>
+            (a[1] = 120; - novu vrednost unosimo pod bilo kojim indeksom). <br><br><br>
+            <strong><u>-Kreiranje nizova:</u></strong>
+        </p>
+        var a = []; <span>// prazan niz(ima 0 elemenata)</span><br>
+        var brojevi = [25,14,75,4,36]; <span>// niz koji ima 5 elemenata</span><br>
+        var imena = ["Ivana","Marko","Dušan","Sanja"]; <span>// niz stringova,niz koji ima 4 elemenata</span><br>
+        var miks = [21,true,"Milica"]; <span>// niz koji sadrži različite tipove podataka</span><br><br>
+        <p>Ako su elementi niza nizovi onda se radi o multidimenzionalnim nizovima. Ovde prvo moramo da kreiramo niz,
+            pa onda da za svaki elemenat tog glavnog niza kreiramo podniz.<br>
+            Kasnije u konzoli možemo pozvati koji god elemenat niza želimo. </p>
+        var multi = [[8,12,24],[7,3,14],[26,18,45]]; <span>// primer multidimenzionalnog niza</span><br>
+        console.log(multi[1]); <span>// vraća drugi niz [7,3,14]</span><br>
+        console.log(multi[2][1]); <span>// iz 3.niza vraća 2.elemenat(vraća broj 18 iz niza[26,18,45])</span><br><br><br>
+        <p> <strong><u> -Prolazak kroz elemente niza</u></strong><br><br>
+            Kroz elemente niza ćemo najlakše proći pomoću FOR petlje:
+        </p>
+
+        var automobili = ["Mercedes", "Opel", "Fiat"]; <span>// niz sa tri elementa (indeksi 0, 1 i 2)</span><br>
+        for (var i = 0; i &lt; 3; i++) {<br>
+        console.log(automobili[i]); <span>// u konzoli ispisuje jedan po jedan elemenat niza(Mercedes,Opel,Fiat)</span><br>
+        }<br>
+        <p>Primer prolazka kroz elemente multidimenzionalnog niza:</p>
+        var m = [[28, 22], [71, 11], [23, 81]]; <span>// svaki od tri niza ima po dva elemenata</span><br>
+        for (var k = 0; k &lt; 3; k++) {<br>
+        for (var j = 0; j &lt; 2; j++) {<br>
+        console.log(m[k][j]); <span>// u konzoli ispisuje jedan po jedan elemenat niza(28,22,71,11,23,81)</span><br>
+        }<br>
+        }<br><br><br>
+
+        <h2>Metode za rad sa nizovima:</h2><br>
+        <h3><u> .length</u></h3>
+        <p>Svi nizovi imaju svostvo <strong>length</strong> koje predstavlja broj elemenata u nizu.
+            Ovo svojstvo uglavnom koristimo za čitanje,kako bismo znali koliko niz ima elemenata.
+            Koristimo ga ako želimo da postavimo novu veličinu niza,tako njegovim smanjenjem možemo da skratimo niz.<br>
+            Važno je zapamtiti da <strong>length</strong> predstavlja broj elemenata niza a ne indeks poslednjeg
+            elementa.
+            To znači da je indeks poslednjeg elementa uvek za jedan manji od vrednosti svojstva <strong>length.</strong><br><br>
+            Primeri:</p>
+        var sportovi = ["fudbal", "košarka", "tenis", "rukomet", "odbojka"];<br>
+        for (var g = 0; g &lt; sportovi.length; g++) {<br>
+        console.log(sportovi[g]);<br>
+        } <span>// nabrajamo sve elemente niza pomoću petlje</span><br><br>
+
+        var b = [100, 200, 300, 400, 500];<br>
+        for (var i = 0; i &lt; b.length; i++){<br>
+        console.log(i + " : " + b[i]);<br>
+        } <span>// u konzoli se ispisuje indeks i vrednost elemenata niza odvojeni sa dve tačke</span><br><br>
+        <hr><br>
+
+        <h3><u>.push()</u></h3>
+        <p>Metod <strong>push()</strong> koristimo za dodavanje jednog ili više elemenata na kraj niza.<br><br>
+            Primer:</p>
+        var namestaj = ["sto", "krevet" , "orman"];<br>
+        namestaj.push("televizor");<br>
+        console.log(namestaj);<br> <span>// ova metoda kao rezultat vraća novu dužinu niza<br>
+            // dodat je novi elemenat na kraju niza:["sto", "krevet" , "orman", "televizor"]</span><br><br>
+        <hr><br>
+
+        <h3><u>.unshift()</u></h3>
+        <p>Pomoću metoda <strong>unshift()</strong> dodajemo jedan ili više elemenata na početak niza.
+            Time će indeksi postojećih elemenata biti promenjeni.<br><br>
+            Primer:
+        </p>
+        var brojevi = [12,19,34,56];<br>
+        brojevi.unshift(2,8); <span>// dodata su dva nova elementa na početku niza</span><br>
+        console.log(brojevi); <span>// kao rezultat dobijamo novu dužinu niza:[2,8,12,19,34,56]</span><br><br>
+        <hr><br>
+
+        <h3><u>.pop()</u></h3>
+        <p>Metod <strong>pop()</strong> uklanja poslednji elemenat iz niza,zatim kao rezultat vraća taj isti elemenat.<br><br>
+            Primeri:
+        </p>
+        var voce = ["banana", "limun", "jabuka" , "kivi", "breskva"];<br>
+        console.log(voce.pop());<span> // ovde kao rezultat vraća zadnji elemenat niza.</span><br><br><br>
+
+        var vocke = ["banana", "limun", "jabuka" , "kivi", "breskva"];<br>
+        vocke.pop();<br>
+        console.log(vocke);<br>
+        <span>// u ovom slučaju vraća sve elemente niza osim poslednjeg:["banana","limun","jabuka","kivi"]</span><br><br>
+        <hr><br>
+        <h3><u>.shift()</u></h3>
+        <p>Metod <strong>shift()</strong> uklanja prvi elemenat iz niza,zatim kao rezultat vraća uklonjeni
+            elemenat.Dužina niza se smanjuje za jedan.<br><br>
+            Primer:
+        </p>
+        var niz = [50,100,200,400];<br>
+        var prviElemenat = niz.shift();<br>
+        console.log(niz);<span> // vraća niz bez prvog elementa:[100,200,400]</span><br>
+        console.log(prviElemenat); <span> // vraća prvi elemenat niza</span><br><br>
+        <hr><br>
+        <h3><u>.splice()</u></h3>
+        <p>Metod <strong>splice()</strong> nam omogućava da istovremene dodajemo i uklanjamo elemente na bilo kom mestu
+            u nizu.
+            Može se zadati u obliku sa dva ili više parametra:<br>
+            - Prvi parametar je pozicija na koju dodajemo,to je indeks elementa od koga počinje dodavanje.
+            Ako se zada indeks veći od poslednjeg elementa,podrazumeva se dužina niza tj.prvi indeks posle poslednjeg
+            elementa.
+            Ako se zada negativan broj,odbrojava se toliko elemenata od kraja niza.<br>
+            - Drugi parametar označava broj elemenata koji se uklanjaju, počev od elementa čiji je indeks zadat.
+            Ako se zada broj 0, onda se ništa ne uklanja iz niza.Ako se zada veći broj nego što ima elemenata do kraja
+            niza,
+            onda se uklanjaju svi elementi do kraja.<br>
+            - Svi parametri posle toga su novi elementi koje hoćemo da dodamo.Ako smo uklanjali neke elemente iz
+            niza,novi elementi se ubacuju umesto njih.
+            Ako nismo uklanjali elemente, novi elementi se ubacuju ispred elementa čiji smo indeks zadali.<br><br>
+            Primeri: </p>
+
+        var godine = [2012,2015,2016,2017,2018];<br>
+        godine.splice(1,0,2013,2014); <span>// ispred indeksa 1 dodajemo nove elemente</span><br>
+        console.log(godine); <span>// u konzoli se ispisuje: [2012,2013,2014,2015,2016,2017,2018]</span><br><br><br>
+
+        var meseci = ["Januar","Maj","Mart","April"];<br>
+        meseci.splice(-3,1,"Februar");<span> // uklanjamo treći elemenat od kraja niza i umesto njega dodajemo novi
+            elemenat</span><br>
+        console.log(meseci); <span>// u konzoli se ispisuje: ["Januar","Februar","Mart","April"]</span><br><br>
+        <hr><br>
+        <h3><u>.indexOf()</u></h3>
+        <p>
+            Ovaj metod vraća prvo pojavljivanje elementa u nizu.Kao rezultat vraća indeks pronađenog elementa.
+            Ako se zadata vrednost ne pronađe rezultat je -1.<br>
+            Metod <strong>indexOF()</strong> ima dva parametra.Prvi parametar je vrednost koja se traži i taj je
+            obavezan.
+            Drugi parametar je broj indeksa od koga počinje pretraga,ako se ne navede podrazumeva se početak niza
+            tj.indeks 0.
+            Drugi parametar može biti i negativan.U tom slučaju se elemenat od koga počinje pretraga odbrojava od kraja
+            niza.<br><br>
+            Primeri:
+        </p>
+
+        var motori = ["Yamaha","Honda","Suzuki","Kawasaki"];<br>
+        console.log(motori.indexOf("Suzuki"));<br>
+        <span>// u konzoli ispisuje 2,jer je traženi elemenat sa indeksom 2</span><br><br><br>
+
+        var num = [22,33,44,55,66,22,77];<br>
+        var x = num.indexOf(22, 2);<span> // tražimo broj 22 i krećemo pretragu od indeksa 2(treće pozicije)</span><br>
+        console.log(x); <span>vraća 5(preskače prvu 22 i nalazi sledeću koja je na indeksu 5)</span><br><br>
+
+        <span>/* var num = [22,33,44,55,66,22,77];<br>
+            var x = num.indexOf(22, -3);<br>
+            console.log(x); <br>
+            ako je drugi parametar negativan kao u ovom slučaju -3,tada krećemo pretragu od 3.elementa od kraja */
+        </span><br><br>
+        <p>U sledećem primeru vidimo kako da pronađemo drugu pojavu nekog elementa:</p>
+
+        var n = [10, 20, 35, 40, 20, 55, 60]<br>
+        var p = n.indexOf(20);<br>
+        if (p > -1) {<br>
+        p = n.indexOf(20, p + 1);<br>
+        }<br>
+        console.log(p);<span> // vraća 4(drugu 20-icu u nizu)</span><br>
+        <span>/* ovde smo pronašli prvi indeks tražene vrednosti i kad je element ponađen ,ponovo ga tražimo,ali počev
+            od prve sledeće pozicije */</span>
+        <br><br>
+        <hr><br>
+        <h3><u>.lastIndexOf()</u></h3>
+        <p>
+            Ovaj metod pronalazi zadnje pojavljivanje elementa u nizu.<br><br>
+            Primer:
+        </p>
+        var imena = ["Milan","Branko","Dušan","Dragan","Ivan","Dušan","Pera"];<br>
+        var c = imena.lastIndexOf("Dušan")<br>
+        console.log(c);<span> // pretraga kreće od zadnjeg elementa i ide unazad</span><br><br>
+        <hr><br>
+        <h3><u>.join()</u></h3>
+        <p>
+            Metod <strong>join()</strong> služi da sve elemente niza pretvori u string,tako što između svakog elementa
+            ubaci ,(zarez).
+            Podrazumevani separator je ",". Ako se zada prazan string onda će svi elementi biti spojeni.<br><br>
+            Primeri:
+        </p>
+        var br = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];<br>
+        var y;<br>
+        y = br.join(" - ");<br>
+        console.log(y); <span>// vraća 1,2,3 - 4,5,6 - 7,8,9</span><br><br><br>
+
+        var s = ["lekar", "pekar", "apotekar"];<br>
+        var t;<br>
+        t = "zanimanje:" + s.join(" zanimanje:");<br>
+        console.log(t); <span>// zanimanje:lekar zanimanje:pekar zanimanje:apotekar</span><br><br>
+        <hr><br>
+        <h3><u>.toString()</u></h3>
+        <p>
+            Ovaj metod vraća prikaz niza kao string.Elementi su odvojeni zarezima.<br><br>
+            Primer:
+        </p>
+        var zivotinje = ["tigar","medved","lav","zec"];<br>
+        console.log(zivotinje.toString()); <span>// tigar,medved,lav,zec</span><br><br>
+        <hr><br>
+        <h3><u>.slice()</u></h3>
+        <p>
+            Metod <strong>slice()</strong> vraća podniz od datog niza.
+            Dva parametra određuju početak i kraj podniza koji se dobija.
+            Rezultat je niz koji sadrži elemenat određen prvim parametrom(zapamtili smo da brojanje kreće od nule) i
+            broji
+            sve naredne elemente do drugog parametra(ali ne i njega).<br>
+            Ako je naveden samo jedan parametar,rezultat sadrži sve elemente počev od tog parametra pa sve do kraja
+            niza.<br><br>
+            Primeri:
+        </p>
+
+        var dani = ["ponedeljak", "utorak", "sreda", "cetvrtak", "petak", "subota", "nedelja"];<br>
+        var vikend = dani.slice(5,7);<span> // var vikend = dani.slice(5); - dobija se potpuno isti rezultat</span><br>
+        console.log(vikend);<span> // vraća: ["subota", "nedelja"]</span><br><br>
+
+        <p>
+            Ako su kao u sledećem primeru,parametri negativni,onda se broji od kraja niza(-1,-2,-3...).
+        </p>
+
+        var polugodiste = ["Januar", "Februar", "Mart", "April", "Maj", "Jun"];<br>
+        var prolece = polugodiste.slice(-4,-1);<br>
+        console.log(prolece);<span> // ovde vraća: ["Mart", "April", "Maj"]</span><br><br>
+        <hr><br>
+        <h3><u>.sort()</u></h3>
+        <p>
+            Ovaj metod, ako ga zadamo bez ikakvih parametara, sortira elemente niza u rastućem poretku(od najmanjeg ka
+            najvećem).
+            Važno je napomenuti da se u ovom slučaju svi elementi niza ponašaju kao stringovi.Bez obzira o kom tipu
+            podataka se radi,svi elementi niza
+            će biti poređani u zavisnosti od njihove pozicije u <strong>UNICODE</strong> tabeli("100" ide pre "3",isto
+            kao što je "aa" ispred "c").</p>
+        <a href="https://unicode-table.com" target="_blank">unicode-table.com</a>
+        <p>Primeri:</p>
+
+        var names = ["Mitar", "Anabela", "Ana", "Slavko", "Dragan"];<br>
+        names.sort();<br>
+        console.log(names);<span> // vraća: ["Ana", "Anabela", "Dragan", "Mitar", "Slavko"]</span><br><br><br>
+
+        var numbers = [1, 7, 100, 238, 10, 33, 21];<br>
+        numbers.sort();<br>
+        console.log(numbers);<span> // vraća: [1, 10, 100, 21, 238, 33, 7]</span><br><br><br>
+        <p>
+            Metod <strong>sort()</strong> je mnogo korisniji ako ima parametar koji predstavlja funkciju,
+            koja se poziva pri svakom upoređivanju.Sada možemo da napravimo bilo koje svoje pravilo za sortiranje.
+            Funkcija ima dva parametra koji predstavljaju dva elementa niza koji se u tom trenutku uporedjuju.
+        </p>
+        var niz1 = [50, 3, 67, 128, 110, 25, 245, 84, 65, 9];<br>
+        function poredjaj() {<br>
+        niz1.sort(function (a, b) {<br>
+        return b - a;<span> // ako je a manje od b,vraća pozitivan broj</span><br>
+        });<br>
+        document.getElementById("ispis").innerHTML = niz1;<br>
+        }<br>
+        <p id="ispis"></p>
+        <button onclick="poredjaj()"><strong>Sortiraj od najvećeg</strong></button><br><br>
+        <hr><br>
+
+        <h3><u>.reverse()</u></h3>
+        <p>
+            Metod <strong>reverse()</strong> obrće redosled elemenata niza tj.vraća niz ispisan unazad.<br><br>
+            Primer:
+        </p>
+
+        var niz2 = ["pet", "četiri", "tri", "dva", "jedan"];<br>
+        niz2.reverse();<br>
+        console.log(niz2);<span> // vraća: ["jedan", "dva", "tri", "četiri", "pet"]</span><br><br>
+        <hr><br>
+        <h3><u>.concat()</u></h3>
+        <p>
+            Metod <strong>concat()</strong> spaja dva ili više niza.Kao rezultat dobijamo nov niz.
+        </p>
+        var boje1 = ["plava", "bela", "crvena"];<br>
+        var boje2 = ["crna", "zelena", "siva"];<br>
+        var boje3 = ["zuta", "braon"];<br>
+        var boje = boje1.concat(boje2,boje3);<br>
+        console.log(boje);<span> // ["plava", "bela", "crvena", "crna", "zelena", "siva", "zuta", "braon"]</span><br><br>
+        <hr><br>
+        <h3><u>.every()</u></h3>
+        <p>
+            Metod <strong>every()</strong> služi da proverimo ispravnost svih elemenata niza.Vraća vrednost <strong>true</strong>
+            ako svaki elemenat niza ispunjava uslov, u suprotnom vraća <strong>false</strong>.<br>
+            Važno je napomenuti da ovaj metod vraća <strong>true</strong> ako funkcija vrati <strong>true</strong> za
+            svaki elemenat niza.
+            Ako funkcija u nekom trenutku vrati <strong>false</strong> nema potrebe da se ispituju ostali elementi
+            niza,
+            jer će ukupni rezultat biti <strong>false</strong>.<br><br>
+            Primer:
+        </p>
+        var gdn = [32, 21, 18, 20, 65, 38];<br>
+        function proveriGodine(){<br>
+        var svi= gdn.every(function(element) {<br>
+        return element >= 18;<br>
+        });<br>
+        document.getElementById("pregled").innerHTML = svi;<br>
+        } <span>// proveravamo da li je svaki broj veći ili jednako 18</span><br>
+        <p id="pregled"></p>
+        <button onclick="proveriGodine()"><strong>Provera</strong></button><br><br>
+        <hr><br>
+        <h3><u>.some()</u></h3>
+        <p>
+            Ovaj metod će vratiti vrednost <strong>true</strong> ako makar jedan elemenat niza ispunjava uslov.
+            Ako funkcija vrati <strong>true</strong> za bar jedan elemenat u nizu,onda se ostali elementi niza i ne
+            proveravaju.<br><br>
+            Primer:
+        </p>
+        var poeni = [68, 92, 89, 34, 88, 82];<br>
+        function maxPoena(){<br>
+        var sto = poeni.some(function(elementi) {<br>
+        return elementi == 100;<br>
+        });<br>
+        document.getElementById("maksimum").innerHTML = sto;<br>
+        } <span>// proveravamo da li u nizu postoji broj 100</span><br>
+        <p id="maksimum"></p>
+        <button onclick="maxPoena()"><strong>Proveravamo</strong></button><br><br>
+        <hr><br>
+        <h3><u>.filter()</u></h3>
+        <p>
+            Metod proverava za svaki elemenat da li ispunjava uslov i formira novi niz sa onim
+            elementima koji prolaze filter.<br><br>
+            Primer:
+        </p>
+        var niz3 = [4, 6, 25, 8, 11, 32, 5];<br>
+        function manjiOdDeset() {<br>
+        var d = niz3.filter(function (broj) {<br>
+        return broj &lt; 10;<br>
+        });<br>
+        document.getElementById("pronadji").innerHTML = d;<br>
+        }<span> // vraća brojeve manje od 10</span><br>
+        <p id="pronadji"></p>
+        <button onclick="manjiOdDeset()"><strong>Vrati brojeve manje od 10</strong></button><br><br>
+        <hr><br>
+        <h3><u>.reduce()</u></h3>
+        <p>
+            Pomoću ovog metoda ceo niz se pretvara u jednu vrednost.Za svaki elemenat niza, metod <strong>reduce()</strong>
+            poziva funkciju i prosledjuje joj
+            ukupni dotadašnji rezultat i sam elemenat.<br><br>
+            Primer:
+        </p>
+        var niz4 = [10, 18, 9, 3, 41, 11];<br>
+        function zbir() {<br>
+        var q = niz4.reduce(function (rezultat,elemenat) {<br>
+        return rezultat + elemenat;<br>
+        });<br>
+        document.getElementById("sum").innerHTML = q;<br>
+        } <span>// sabira sve elemente niza</span><br>
+
+        <p id="sum"></p>
+        <button onclick="zbir()"><strong>Saberi</strong></button>
+        <br>
+        <p>
+            Ovde promenljiva <strong>"rezultat"</strong> po defaultu kreće od nule.Sa svakim pozivom predstavljaće
+            prethodni rezultat
+            koji se prosleđuje funkciji zajedno sa sledećim elementom koji je na redu.Funkcija ih sabira i vraća kao
+            novi rezultat
+            koji će se proslediti u sledećem pozivu,sve dok ne postane krajnji rezultat.<br><br>
+            <hr><br>
+            <h3><u>.map()</u></h3>
+            <p>
+                Metod <strong>map()</strong> za svaki elemenat niza poziva funkciju i menja sve elemente niza.
+                Kreira se novi niz u kome svaki elemenat odgovara jednom elementu iz originalnog niza.<br><br>
+                Primeri:
+            </p>
+
+            var niz5 = [10, 5, 11, 2];<br>
+            var stepenuj = niz5.map(function (broj){<span> // funkcija menja svaki elemenat iz niza</span><br>
+            return Math.pow(broj, 3);<span> // svaki broj iz niza se stepenuje</span><br>
+            });<br>
+            console.log(stepenuj);<span> // [1000, 125, 1331, 8]</span><br><br><br><br>
+
+
+            var rezultatiTesta = [51, 22, 71, 34, 47,89];<span> // broj poena na testiranju(max. je 100)</span><br>
+            function paoIliPolozio(){<br>
+            var ocene = rezultatiTesta.map(function(elem) {<br>
+            var d = Math.ceil(elem / 10);<span> // broj poena se deli sa 10 pa se zaokružuje</span><br>
+            if(d &lt; 6){<span> // ako ima manje od 51.poena, ocena je 5,nije položio</span><br>
+            return " pao";<br>
+            }<br>
+            else{<br>
+            return " položio";<bR>
+            }<br>
+            });<br>
+            document.getElementById("oceni").innerHTML = ocene;<br>
+            }
+
+            <p id="oceni"></p>
+            <button onclick="paoIliPolozio()"><strong>Oceni testove</strong></button><br><br>
+            <hr><br>
+
+            <h3><u>.forEach()</u></h3>
+            <p>
+                Metod <strong>forEach()</strong> izvršava prosleđenu funkciju za svaki elemenat niza.Ovaj metod prosto
+                prolazi kroz sve
+                elemente niza i poziva funkciju.<br><br>
+                Primer:
+            </p>
+
+            var omiljenaJela = ["pečenje", "riba", "roštilj", "špagete"];<br>
+            omiljenaJela.forEach(function (element, indeks) {<br>
+            console.log(indeks + " : " + element);<br>
+            });<br><span> // 0 : pečenje<br>
+                // 1 : riba<br>
+                // 2 : roštilj<br>
+                // 3 : špagete
+            </span><br><br>
+            <hr><br>
+            <h3><u>.find()</u></h3>
+            <p>
+                Metod <strong>find()</strong> proverava sve elemente niza i vraća prvi koji ispunjava uslov funkcije.
+                Ukoliko ni jedan elemenat ne ispunjava uslov,vraća <strong>undefined</strong>.<br><br>
+                Primer:
+            </p>
+
+            var niz6 = [7, 22, 3, 15, 1];<br>
+            function nadjiBroj() {<br>
+            var pronadji = niz6.find(function (br) {<br>
+            return br &lt; (Math.sqrt(16));<br>
+            });<br>
+            document.getElementById("nadji").innerHTML = pronadji;<br>
+            }<span> // vraća prvi broj koji je manji od 4</span><br>
+            <p id="nadji"></p>
+            <button onclick="nadjiBroj()"><strong>Prvi koji ispunjava uslov</strong></button><br><br>
+            <hr><br>
+
+            <h3><u>Array.isArray()</u></h3>
+            <p>
+                Ovaj metod proverava da li je prosledjeni podatak niz. Vraća <strong>true</strong> ili <strong>false</strong>.<br>
+                Podatak koji proveravamo se zadaje kao parametar.<br><br>
+                Primer:
+            </p>
+            var niz7 = [45, 6, "Ivana", 88];<br>
+            console.log(Array.isArray(niz7));<span> // vraća true</span><br><br>
+            <p>Još neki primeri:</p>
+
+            console.log(Array.isArray("nešto")); <span> // false</span><br>
+            console.log(Array.isArray([])); <span> // true</span><br>
+            console.log(Array.isArray({})); <span> // false</span><br>
+            console.log(Array.isArray(33,44)); <span> // false</span><br>
+            console.log(Array.isArray(new Array(33,44))); <span>// true</span><br>
+            console.log(Array.isArray(true)) <span> // false</span><br><br>
+            <hr><br>
+
+
+            <h3><u>.findIndex()</u></h3>
+            <p>
+                Ovaj metod proverava za svaki elemenat niza da li ispunjava uslov i vraća indeks prvog elementa
+                koji ispunjava zadati uslov.Ukoliko ni jedan elemenat niza ne ispunjava uslov vraća <strong>-1</strong>.<br><br>
+                Primer:
+            </p>
+
+            let niz8 = [19, 29, 39, 49, 59];<br>
+            function nadjiPrviBroj(indeks) {<br>
+            return indeks >= 40;<br>
+            }<br>
+            console.log(niz8.findIndex(nadjiPrviBroj)); <span> // vraća 3</span><br>
+            <span> // broj 49 je prvi koji ispunjava uslov,on on je četvrti elemenat niza i ima indeks 3 </span><br><br>
+            <hr><br>
+
+            <h3><u>.reduceRight()</u></h3>
+            <p>
+                Metod <strong>reduceRight()</strong> prolazi kroz niz od poslednjeg ka prvom elementu.<br><br>
+                Primer:
+            </p>
+
+            var niz9 = [200, 400, 600, 800];<br>
+            function oduzmi(ukupno, brojevi) {<br>
+            return ukupno - brojevi;<br>
+            }<br>
+            console.log(niz9.reduceRight(oduzmi)); <span>// kreće sa desna na levo i oduzima sve brojeve</span>
+
+
+
+
+
+
+
+
+
+    </div> <br><br>
+
+
+    <script>
+        var multi = [[8, 12, 24], [7, 3, 14], [26, 18, 45]];
+        console.log(multi[1]);
+        console.log(multi[2][1]);
+
+
+
+        var automobili = ["Mercedes", "Opel", "Fiat"];
+        for (var i = 0; i < 3; i++) {
+            console.log(automobili[i]);
+        }
+
+        var m = [[28, 22], [71, 11], [23, 81]];
+        for (var k = 0; k < 3; k++) {
+            for (var j = 0; j < 2; j++) {
+                console.log(m[k][j]);
+            }
+        }
+
+        var sportovi = ["fudbal", "košarka", "tenis", "rukomet", "odbojka"];
+        for (var g = 0; g < sportovi.length; g++) {
+            console.log(sportovi[g]);
+
+        }
+
+
+        var b = [100, 200, 300, 400, 500];
+        for (var i = 0; i < b.length; i++) {
+            console.log(i + " : " + b[i]);
+        }
+
+        var namestaj = ["sto", "krevet", "orman"];
+        namestaj.push("televizor");
+        console.log(namestaj);
+
+
+        var brojevi = [12, 19, 34, 56];
+        brojevi.unshift(2, 8);
+        console.log(brojevi);
+
+        var voce = ["banana", "limun", "jabuka", "kivi", "breskva"];
+        console.log(voce.pop());
+
+
+        var vocke = ["banana", "limun", "jabuka", "kivi", "breskva"];
+        vocke.pop();
+        console.log(vocke);
+
+        var niz = [50, 100, 200, 400];
+        var prviElemenat = niz.shift();
+        console.log(niz);
+        console.log(prviElemenat);
+
+
+        var godine = [2012, 2015, 2016, 2017, 2018];
+        godine.splice(1, 0, 2013, 2014);
+        console.log(godine);
+
+        var meseci = ["Januar", "Maj", "Mart", "April"];
+        meseci.splice(-3, 1, "Februar");
+        console.log(meseci);
+
+
+        var motori = ["Yamaha", "Honda", "Suzuki", "Kawasaki"];
+        console.log(motori.indexOf("Suzuki"));
+
+
+        var num = [22, 33, 44, 55, 66, 22, 77];
+        var x = num.indexOf(22, -3);
+        console.log(x);
+
+
+        var n = [10, 20, 35, 40, 20, 55, 60]
+        var p = n.indexOf(20);
+        if (p > -1) {
+            p = n.indexOf(20, p + 1);
+        }
+        console.log(p);
+
+
+        var imena = ["Milan", "Branko", "Dušan", "Dragan", "Ivan", "Dušan", "Pera"];
+        var c = imena.lastIndexOf("Dušan")
+        console.log(c);
+
+
+        var br = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+        var y;
+        y = br.join(" - ");
+        console.log(y);
+
+
+        var s = ["lekar", "pekar", "apotekar"];
+        var t;
+        t = "zanimanje:" + s.join(" zanimanje:");
+        console.log(t);
+
+
+        var zivotinje = ["tigar", "medved", "lav", "zec"];
+        console.log(zivotinje.toString());
+
+
+        var dani = ["ponedeljak", "utorak", "sreda", "cetvrtak", "petak", "subota", "nedelja"];
+        var vikend = dani.slice(5, 7);
+        console.log(vikend);
+
+        var polugodiste = ["Januar", "Februar", "Mart", "April", "Maj", "Jun"];
+        var prolece = polugodiste.slice(-4, -1);
+        console.log(prolece);
+
+
+        var names = ["Mitar", "Anabela", "Ana", "Slavko", "Dragan"];
+        names.sort();
+        console.log(names);
+
+
+        var numbers = [1, 7, 100, 238, 10, 33, 21];
+        numbers.sort();
+        console.log(numbers);
+
+
+        var niz1 = [50, 3, 67, 128, 110, 25, 245, 84, 65, 9];
+        function poredjaj() {
+            niz1.sort(function (a, b) {
+                return b - a;
+            });
+            document.getElementById("ispis").innerHTML = niz1;
+        }
+
+
+        var niz2 = ["pet", "četiri", "tri", "dva", "jedan"];
+        niz2.reverse();
+        console.log(niz2);
+
+
+        var boje1 = ["plava", "bela", "crvena"];
+        var boje2 = ["crna", "zelena", "siva"];
+        var boje3 = ["zuta", "braon"];
+        var boje = boje1.concat(boje2, boje3);
+        console.log(boje);
+
+
+        var gdn = [32, 21, 18, 20, 65, 38];
+        function proveriGodine() {
+            var svi = gdn.every(function (element) {
+                return element >= 18;
+            });
+            document.getElementById("pregled").innerHTML = svi;
+        }
+
+
+        var poeni = [68, 92, 89, 34, 88, 82];
+        function maxPoena() {
+            var sto = poeni.some(function (elementi) {
+                return elementi == 100;
+            });
+            document.getElementById("maksimum").innerHTML = sto;
+        }
+
+
+
+        var niz3 = [4, 6, 25, 8, 11, 32, 5];
+        function manjiOdDeset() {
+            var d = niz3.filter(function (broj) {
+                return broj < 10;
+            });
+            document.getElementById("pronadji").innerHTML = d;
+        }
+
+
+        var niz4 = [10, 18, 9, 3, 41, 11];
+        function zbir() {
+            var q = niz4.reduce(function (rezultat, elemenat) {
+                return rezultat + elemenat;
+            });
+            document.getElementById("sum").innerHTML = q;
+        }
+
+
+        var niz5 = [10, 5, 11, 2];
+        var stepenuj = niz5.map(function (broj) {
+            return Math.pow(broj, 3);
+        });
+        console.log(stepenuj);
+
+
+
+        var rezultatiTesta = [51, 22, 71, 34, 47, 89];
+        function paoIliPolozio() {
+            var ocene = rezultatiTesta.map(function (elem) {
+                var d = Math.ceil(elem / 10);
+                if (d < 6) {
+                    return " pao";
+                }
+                else {
+                    return " položio";
+                }
+            });
+            document.getElementById("oceni").innerHTML = ocene;
+        }
+
+
+
+        var omiljenaJela = ["pečenje", "riba", "roštilj", "špagete"];
+        omiljenaJela.forEach(function (element, indeks) {
+            console.log(indeks + " : " + element);
+        });
+
+
+
+
+        var niz6 = [7, 22, 3, 15, 1];
+        function nadjiBroj() {
+            var pronadji = niz6.find(function (br) {
+                return br < (Math.sqrt(16));
+            });
+            document.getElementById("nadji").innerHTML = pronadji;
+        }
+
+
+        var niz7 = [45, 6, "Ivana", 88];
+        console.log(Array.isArray(niz7));
+
+
+
+        let niz8 = [19, 29, 39, 49, 59];
+        function nadjiPrviBroj(indeks) {
+            return indeks >= 40;
+        }
+        console.log(niz8.findIndex(nadjiPrviBroj));
+
+
+
+        var niz9 = [200, 400, 600, 800];
+        function oduzmi(ukupno, brojevi) {
+            return ukupno - brojevi;
+        }
+        console.log(niz9.reduceRight(oduzmi));
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
