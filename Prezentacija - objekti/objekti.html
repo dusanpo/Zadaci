@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            font-family: Monospace;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            background-color: rgb(220, 195, 180);
+        }
+
+        .first {
+            box-shadow: 6px 10px 15px 10px rgb(39, 20, 20);
+            /*20px 20px 10px grey*/
+            background-color: rgb(157, 201, 209);
+            border-style: inset;
+            padding: 30px;
+            height: 7200px;
+            text-align: justify;
+            color: rgb(173, 117, 12);
+            /* rgb(133, 51, 153); */
+            margin-top: 50px;
+            margin-left: 130px;
+            margin-right: 130px;
+            font-size: 19px;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+            font-size: 50px;
+            /*text-shadow: 5px 5px 3px*/
+
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+            font-size: 38px;
+        }
+
+        h3 {
+            color: rgb(214, 22, 22);
+            font-size: 27px;
+        }
+
+        p {
+
+            font-size: 20px;
+            color: black;
+        }
+
+        span {
+            color: green;
+
+        }
+
+        .second {
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            background: black;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+            border-style: inset;
+            box-shadow: 6px 5px 10px 5px rgb(39, 20, 20);
+        }
+
+        .second:hover {
+            opacity: 1;
+        }
+
+        var {
+            color: rgb(18, 18, 221);
+            font-style: normal;
+        }
+
+        code {
+            color: lightblue;
+        }
+
+        samp {
+            color: rgb(219, 219, 28);
+        }
+
+        kbd {
+            color: blueviolet;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="first">
+
+        <h1>Objekti</h1>
+        <br>
+
+
+
+        <p>
+
+            &nbsp;&nbsp;&nbsp;Objekti se kao i nizovi mogu koristiti za smeštanje više vrednosti u jednu promenljivu.
+            Objekat je skup svojstava od kojih svako ima svoje ime(ključ) i vrednost.Pored svojstava u elemente objekta
+            spadaju i metode.
+            Metode su u stvari funkcije koje se nalaze u objektu.
+            <br><br>
+
+        </p>
+
+        <div class="second">
+            <var>var</var>
+            <code>osoba = {</code> <br>
+            <code>ime :</code> "Bojan"<code>,</code> <span>// "ime" je ključ, "Bojan" je vrednost tog ključa</span><br>
+            <code>prezime : </code> "Žižić"<code>,<br>
+            zanimanje :</code> "lekar"<br>
+            <code>};</code><br>
+        </div><br><br><br>
+        <h2>Kreiranje objekta</h2><br>
+        <p>Objekte možemo kreirati na više načina:</p>
+        <h3><u>1.Object literal</u></h3>
+        <p>
+            Ovaj tip kreiranja objekata je najjednostavniji, i zasniva se na definisanju elemenata
+            objekata izmedju vitičastih zagrada.<br><br>
+            Primer:
+        </p>
+        <div class="second">
+            <var>var</var> <code>osoba = {</code><br>
+            <code>ime:</code> "Milan"<code>,</code> <br>
+            <code>godine:</code> <samp>35<code>,</code> </samp><br>
+            <code>zanimanje:</code> "poštar"<code>,</code> <br>
+            <samp>pozdrav</samp><var><code>:</code> function</var><code> () { </code> <span>// ovaj red možemo ispisati
+                po skraćenoj sintaksi: pozdrav(){</span><br>
+            <kbd>return</kbd> "Zdravo ja sam " <code>+ osoba.ime +</code> ", imam "<code> + osoba.godine +</code> "
+            godina."<code>;</code><br>
+            <code>  }<br>
+            };</code><br><br>
+            <span><strong>console</strong></span><samp>.log</samp><code>(osoba);</code><span> // funkciju
+                pozivamo ovako: osoba.pozdrav();</span>
+        </div><br>
+        <p>
+            Funkcije koje se nalaze u objektu zovemo <strong>metodi</strong>. Iznad kreirani metod "pozdrav" u objektu
+            "osoba"
+            pozvaćemo ovako:<br> <strong>osoba.pozdrav();</strong><br>
+            Elementima objekta pristupamo na jedan od ova dva načina:<br>
+            <strong>osoba.ime;</strong><br>
+            <strong>osoba['ime'];</strong><br>
+            Ponekad ključevi moraju biti pod navodnicima,to se dešava kada u imenu ključa postoji neki "nedozvoljeni"
+            karakter koji bi mogao pogrešno da se interpretira
+            (npr.razmak,dve tačke),
+            u tom slučaju pozivamo elemente objekta na drugi način(sa uglastim zagradama).<br>
+
+            Ključevima možemo naknadno dodeljivati nove vrednosti:<br>
+            <strong>osoba.godine = 40;</strong><br>
+            Svojstvo objekta možemo obrisati, to radimo pomoću <strong>delete</strong>.
+            Na primer:<br> <strong>delete osoba.godine;</strong><br><br>
+            Ako želimo da objektu dodamo novo svostvo,to radimo na sledeći način:<br>
+            <strong>osoba.status = "oženjen";</strong>(ime objekat.ključ = vrednost;)<br>
+            Ako bi želeli da objektu dodamo nov metod,to radimo ovako:<br>
+            <strong> osoba.brak = function () {...};</strong><br><br>
+
+
+            U sledećem primeru smo objektu "osoba",dodali novo svojstvo i novi metod:
+        </p>
+        <div class="second">
+            <var>var</var> <code>osoba = {</code><br>
+            <code>ime:</code> "Milan"<code>,</code> <br>
+            <code>godine:</code> <samp>35<code>,</code> </samp><br>
+            <code>zanimanje:</code> "poštar"<code>,</code> <br>
+            <samp>pozdrav</samp><var><code>:</code> function</var><code> () { </code><br>
+            <kbd>return</kbd> "Zdravo ja sam " <code>+ osoba.ime +</code> ", imam "<code> + osoba.godine +</code> "
+            godina."<code>;</code><br>
+            <code>  }<br>
+            };</code><br><br>
+            <code>osoba.</code><samp>brak</samp><code> = </code><var>function</var> <code>() {</code><br>
+            <kbd>return</kbd> "Moje zanimanje je " <code>+ osoba.zanimanje +</code> " i "<code> + osoba.status +</code>
+            " sam."<code>;</code><br>
+            <code>
+            };<br><br>
+            osoba.status = </code>"oženjen"<code>;</code> <span>// dodajemo novi elemenat u objekat</span><br><br>
+            <span><strong>console</strong></span><samp>.log</samp><code>(osoba);</code>
+
+        </div><br><br><br>
+
+        <h3><u>2.New Object</u></h3>
+        <p>
+            Ovde kreiramo instancu objekta sa <strong>new Object</strong>. Prvo kreiramo prazan objekat,
+            a zatim pojedinačno dodajemo nove ključeve i vrednosti.<br><br>
+            Primer:
+        </p>
+        <div class="second">
+
+            <var>var</var> <code>osoba1 = </code><var>new</var> <span><strong>Object</strong></span><code>();</code><span>
+                // ovaj red može i ovako: var osoba1 = {};</span><br>
+            <code>osoba1.ime = </code>"Dragan"<code>;</code><br>
+            <code>osoba1.prezime = </code>"Jovanović"<code>;</code><br>
+            <code>osoba1.zanimanje = </code>"student"<code>;</code><br>
+            <code>osoba1.</code><samp>zdravo</samp> <code>=</code> <var>function</var><code> () {</code><br>
+            <kbd>return</kbd> "Ja se zovem " <code>+ </code><var>this</var><code>.ime + </code>" " <code>+</code> <var>this</var><code>.prezime;</code><br>
+            <code>};</code><br><br>
+            <span><strong>console</strong></span><samp>.log</samp><code>(osoba1);</code><br>
+            <span><strong>console</strong></span><samp>.log</samp><code>(osoba1.<samp>zdravo</samp>());</code><br>
+        </div><br>
+        <p>
+            Pomoću <strong>new Object()</strong> kreiramo nov,prazan objekat.
+            Da bi metod pristupio ključevima objekta koristimo <strong>this</strong>.Reč this upućuje na trenutni
+            objekat.
+        </p><br>
+        <h3><u>3.Object constructor(prototype)</u></h3>
+        <p>
+            Kreiramo objekat primenom konstruktorske funkcije.U samoj funkciji je jako značajna upotreba <strong>this</strong>
+            koji predstavlja objekat za koji je funkcija pozvana.Svako svojstvo koje želimo da kreiramo definišemo kao
+            <strong>this.svojstvo</strong>.<br>Koristimo rezervisanu reč <strong>new</strong> da bismo kreirali nov
+            objekat na osnovu
+            konstruktor funkcije.<br>Preporučljivo je da metode koje pravimo ne budu unutar funkcije već da ih
+            izdvojimo.U tu svrhu
+            koristimo <strong>prototype</strong>, koji se korisi za dodavanje metoda na konstruktor funkciju.<br><br>
+            Primer konstruktor funkcije sa parametrima:
+        </p>
+        <div class="second">
+
+            <var>var</var> <samp>Auto</samp> <code>= </code><var>function </var><code>(marka, model, godProizvodnje) {</code>
+            <span><br> // ime konstruktora treba da počinje velikim slovom</span><br>
+            <var>this</var><code>.marka = marka;</code><br>
+            <var> this</var><code>.model = model;</code><br>
+            <var>this</var><code>.godProizvodnje = godProizvodnje;</code><br>
+            <var>this</var><code>.maxBrzina = </code><samp>240</samp><code>;</code><br>
+            <code> };</code><br>
+            <span><strong> Auto</strong></span><code>.prototype.</code><samp>prikaziAuto</samp> <code>= </code><var>function</var>
+            <code>() {</code><br>
+            <kbd> return</kbd> `Auto je:<var> ${this</var><code>.marka</code><var>} ${this</var><code>.model</code><var>}</var>,
+            proizveden <var>${this</var><code>.godProizvodnje</code><var>}</var>. godine.` <br>
+            <code> };</code><br>
+            <span><strong>Auto</strong></span><code>.prototype.</code><samp>dajBrzinu</samp><code> = </code><var>function</var><code> () {</code><br>
+            <kbd>return</kbd> <var>this</var><code>.maxBrzina;</code><br>
+            <code>};</code><br><br>
+
+            <var>var</var> <code>mojAuto = </code><var>new</var> <span><strong>Auto</strong></span><code>(</code>"Opel"<code>,</code>
+            "Astra"<code>,</code> <samp>2014</samp><code>);</code> <span> // ovde smo kreirali objekat</span><br><br>
+
+            <span><strong>console</strong></span><samp>.log</samp><code>(mojAuto.</code><samp>prikaziAuto</samp><code>());</code><br>
+            <span><strong>console</strong></span><samp>.log</samp><code>(</code>"maksimalna brzina:"<code>, mojAuto.</code><samp>dajBrzinu</samp><code>(),</code>
+            "km/h."<code>);</code>
+        </div><br>
+        <p>
+
+            <strong>imeKonstruktora.prototype.metod = function() {};</strong> - ovo je šablon kada se koristi
+            prototype.<br>
+            Kao što smo u prototipu definisali metode isto tako smo mogli da definišemo i svojstva<br>
+            (npr. Auto.prototype.marka = "Opel";). Međutim ovo bi trebalo da se izbegava, jer ako promenimo vrednost
+            nekog svojstva ta promena se neće desiti u prototipu,
+            već će se kreirati novo svojstvo samog objekta.<br><br>
+            <strong>var mojAuto = new Auto("Opel", "Astra", 2014);</strong> - kreirali smo promenljivu i rekli da je
+            ona jednako new Auto,
+            takodje smo i definisali parametre.Na ovaj način smo kreirali objekat i pozvali funkciju.<br><br>
+            Primer konstruktor funkcije bez parametra:
+        </p>
+        <div class="second">
+
+            <var>function</var> <samp>Car</samp><code>() {</code> <span>// može i ovako: var Car = function() {</span><br>
+            <var>this</var><code>.manufacturer = </code>"Citroen"<code>;</code><br>
+            <var>this</var><code>.model = </code>"C5"<code>;</code><br>
+            <var>this</var><code>.productionYear = </code><samp>2012</samp><code>;</code><br>
+            <var>this</var><code>.speed = </code><samp>80</samp><code>;</code><br>
+            <var>this</var><code>.maxSpeed = </code><samp>220</samp><code>;<br>
+            };</code><br><br>
+
+            <span><strong>Car</strong></span><code>.prototype.</code><samp>getSpeed</samp><code> = </code><var>function</var><code> () {</code><br>
+            <kbd>return</kbd> <var>this</var><code>.speed;<br>
+            };</code><br><br>
+
+            <var>var</var><code> car3 = </code><var>new </var><span><strong>Car</strong></span><code>();</code><br><br>
+
+            <span><strong>console</strong></span><samp>.group</samp><code>(</code>"CAR3"<code>);</code><br>
+            <span><strong>console</strong></span><samp>.log</samp><code>(car3.</code><samp>getSpeed</samp><code>());</code><br>
+            <span><strong>console</strong></span><samp>.log</samp><code>(car3);</code>
+
+        </div><br><br><br>
+        <h3><u>Module Pattern</u></h3>
+        <p>
+            <strong>Modul Patern</strong> je vraćanje promenljivih,funkcija i celih objekata iz <strong>IIFE</strong>(Immediately
+            Invoked Function Expression).
+            IIFE je funkcija koju možemo da izvršimo čim je kreiramo. Kreira se tako što funkciju obavijemo zagradama i
+            na kraju dodamo još jedan par zagrada kako
+            bi mogli odmah da je pozovemo:
+        </p>
+        <div class="second">
+            <code>(</code><var>function</var> <code>() {<br><br>
+ 
+            })();</code><span> // zadnji par zagrada služi da se pozove funkcija i da se daju parametri za pozivanje</span>
+
+        </div><br>
+        <p>
+            Opseg važenja onoga što upišemo u IIFE ostaje unutar funkcije,nije javno dostupno i neće moći da bude
+            pozvano van nje.
+            Sav kod unutar ovakve funkcije ostaje privatan.<br><br>
+            Primer:
+        </p>
+        <div class="second">
+            <code>(</code><var>function</var> <code>() {</code><br>
+            <var>var</var> <code>sati = </code><var>new</var> <span><strong>Date</strong></span><code>().</code><samp>getHours</samp><code>();</code><br>
+            <var>var</var> <code>pozdrav;</code><br>
+            <kbd>if</kbd> <code>(sati &lt;</code> <samp>18</samp><code>) {</code><br>
+            <code>pozdrav = </code>"Dobar dan"<code>;<br>
+            }</code> <kbd>else</kbd> <code>{<br>
+            pozdrav = </code>"Dobro veče"<code>;<br>
+            }</code><br>
+            <span><strong>console</strong></span><samp>.log</samp><code>(pozdrav); <span>// ovde je u redu</span><br>
+            })();</code><br><br>
+
+            <span><strong>console</strong></span><samp>.log</samp><code>(pozdrav);</code>
+            <span> // vraća : error , pozdrav is not defined</span>
+        </div><br>
+        <p>
+            Možemo da izaberemo koje podatke želimo da zadržimo kao privatne a koje podatke želimo da objavimo.
+            Ono što hoćemo da bude javno dostupno nakon pozivanja programa stavljamo u <strong>return</strong>.
+            Na ovaj način možemo učiniti dostupnim sve tipove podataka.<br><br>
+            Primer vraćanja objekta:
+        </p>
+        <div class="second">
+
+            <var>var</var> <code>izracunajProsek = (</code><var>function</var> <code>(nizBrojeva) {</code><br>
+            <var>var</var><code> brojevi = nizBrojeva;</code><br>
+            <var>var</var><code> objekat = {};</code><br>
+            <code>objekat.</code><samp>prosek</samp><code> = </code><var>function</var><code> () {</code><br>
+            <var>var</var> <code>ukupno = brojevi.</code><samp>reduce</samp><code>(</code><var>function</var> <code>(rezultat, element) {</code><br>
+            <kbd>return</kbd><code> rezultat + element;<br>
+            });</code><br>
+            <kbd>return</kbd> "Prosek je: "<code> + ukupno / brojevi.length;<br>
+            };</code><br>
+            <kbd>return</kbd> <code>objekat;  <span>// ovde smo kreirali objekat</span><br>
+            })([24, 152, 325, 18, 5265, 255]);</code><br><br>
+
+            <span><strong>console</strong></span><samp>.log</samp><code>(izracunajProsek.</code><samp>prosek</samp><code>());</code>
+
+        </div><br>
+        <p>
+            Preko <strong>return</strong> smo praktično kreirali novi objekat.<br>
+            U sledećem primeru ćemo videti kako možemo da izaberemo da neke metode ostanu privatne,
+            a neke da budu javne i dostupne svima:
+        </p>
+        <div class="second">
+
+            <var>var</var><code> mojModul = (</code><var>function </var><code>(nizOcena) {</code><br><br>
+
+            <var>var</var><code> ocene = nizOcena;</code> <span>// JAVNA PROMENLJIVA</span><br><br>
+
+            <var>function</var> <samp>vratiBroj</samp><code>() {</code> <span>// PRIVATNA METODA</span><br>
+            <var>var</var> <code>manji = ocene.</code><samp>filter</samp><code>(</code><var>function</var><code> (broj) {</code><br>
+            <kbd>return</kbd> <code>broj &lt; </code><samp>10</samp><code>;<br>
+            });</code><br>
+            <kbd>return</kbd> "Vrati brojeve manje od deset: "<code> + manji.length;<br>
+            };</code><br><br>
+
+            <var>function</var> <samp>poredjaj</samp><code>() {</code><span> // JAVNA METODA</span><br>
+            <var>var</var> <code>ukupno = ocene.</code><samp>sort</samp><code>(</code><var>function</var><code> (a, b) {</code><br>
+            <kbd>return</kbd><code> b - a;<br>
+            });</code><br>
+            <kbd>return</kbd> "Poredjaj od najvećeg broja: "<code> + ukupno;<br>
+            };</code><br><br>
+
+            <kbd>return</kbd><code> {</code><span> // BIRAMO ONO ŠTO ĆE BITI JAVNO</span><br>
+            <code>ocene : ocene,</code><span> // preko ključeva objekta odlučujemo šta želimo da bude javno</span><br>
+            <code>poredjaj : poredjaj,</code> <span> // u drugoj koloni "ocene" je promenljiva a "poredjaj" je metod</span><br>
+            <code>};<br>
+            })([</code><samp>10</samp><code>,</code><samp> 5</samp><code>,</code><samp> 6</samp><code>,</code><samp> 9</samp><code>,</code><samp>
+                10</samp><code>,</code><samp> 7</samp><code>]);</code><br><br>
+
+            <span><strong>console</strong></span><samp>.log</samp><code>(mojModul.ocene);</code><span> //
+                [10,5,6,9,10,7]</span><br>
+            <span><strong>console</strong></span><samp>.log</samp><code>(mojModul.</code><samp>poredjaj</samp><code>());</code><span>
+                // Poredjaj od najvećeg broja: 10,10,9,7,6,5</span><br>
+            <span><strong>console</strong></span><samp>.log</samp><code>(mojModul.</code><samp>vratiBroj</samp><code>());</code><span>
+                // Error: vratiBroj is not a function</span><br>
+
+
+
+        </div><br><br><br>
+        <h3><u>For/In petlja</u></h3>
+        <p>
+            For/in petlja prolazi kroz sva svojstva objekta. Ciklus se izvršava po jednom za svaki elemenat objekta.
+            Vrednostima svojstva pristupamo koristeći uglaste zagrade.<br><br>
+            Sintaksa:
+        </p>
+        <div class="second">
+
+            <kbd>for</kbd> <code>(promenljiva</code> <var>in</var> <code> objekat){<br>
+                naredba<br>
+            }</code>
+        </div><br>
+        <p>
+            Primer:
+        </p>
+        <div class="second">
+            <var>let</var><code> tekst =</code> ""<code>;</code><br>
+           <var> let</var><code> student = {<br>
+            ime:</code> "Petar"<code>,<br>
+            fakultet:</code> "FON"<code>,<br>
+            prosekOcena:</code><samp> 8.6</samp><br>
+            <code>};</code><br><br>
+
+            <var>let</var><code> x;</code><br>
+            <kbd>for</kbd><code>(x</code><var> in</var><code> student){<br>
+            tekst += student[x] +</code> "\n"<code>;<br>
+            }</code><br><br>
+
+            <span><strong>console</strong></span><samp>.log</samp><code>(tekst);</code>
+
+
+
+
+
+        </div>
+
+
+
+
+    </div> <br><br>
+
+
+    <script>
+
+        var osoba = {
+            ime: "Milan",
+            godine: 35,
+            zanimanje: "poštar",
+            pozdrav: function () {
+                return "Zdravo ja sam " + osoba.ime + ", imam " + osoba.godine + " godina.";
+            }
+        };
+        osoba.brak = function () {
+            return "Moje zanimanje je " + osoba.zanimanje + " i " + osoba.status + " sam.";
+        };
+
+        osoba.status = "oženjen"; // dodajemo novi elemenat u objekat
+        console.log(osoba);
+
+
+
+
+        var osoba1 = new Object();
+        osoba1.ime = "Dragan";
+        osoba1.prezime = "Jovanović";
+        osoba1.zanimanje = "student";
+        osoba1.zdravo = function () {
+            return "Ja se zovem " + this.ime + " " + this.prezime;
+        };
+        console.log(osoba1);
+        console.log(osoba1.zdravo());
+
+
+        delete osoba1.zanimanje;
+
+
+
+
+
+        var Auto = function (marka, model, godProizvodnje) {
+            this.marka = marka;
+            this.model = model;
+            this.godProizvodnje = godProizvodnje;
+            this.maxBrzina = 240;
+        };
+        Auto.prototype.prikaziAuto = function () {
+            return `Auto je: ${this.marka} ${this.model}, proizveden ${this.godProizvodnje}. godine.` //"Auto je: " + this.marka +" " + this.model + " proizveden " + this.godProizvodnje + " godine";
+        };
+        Auto.prototype.dajBrzinu = function () {
+            return this.maxBrzina;
+        };
+
+        var mojAuto = new Auto("Opel", "Astra", 2014);
+
+        console.log(mojAuto.prikaziAuto());
+        console.log("maksimalna brzina:", mojAuto.dajBrzinu(), "km/h.");
+
+
+
+
+        function Car() {
+            this.manufacturer = "Citroen";
+            this.model = "C5";
+            this.productionYear = 2012;
+            this.speed = 80;
+            this.maxSpeed = 220;
+        };
+
+        Car.prototype.getSpeed = function () {
+            return this.speed;
+        };
+
+        var car3 = new Car();
+
+        console.group("CAR3");
+        console.log(car3.getSpeed());
+        console.log(car3);
+
+
+
+        (function () {
+            var sati = new Date().getHours();
+            var pozdrav;
+            if (sati < 18) {
+                pozdrav = "Dobar dan";
+            } else {
+                pozdrav = "Dobro veče";
+            }
+            console.log(pozdrav);
+        })();
+        //console.log(pozdrav); ako pozovemo ovde vraća grešku
+
+
+
+
+
+
+        var izracunajProsek = (function (nizBrojeva) {
+            var brojevi = nizBrojeva;
+            var objekat = {};
+            objekat.prosek = function () {
+                var ukupno = brojevi.reduce(function (rezultat, element) {
+                    return rezultat + element;
+                });
+                return "Prosek je: " + ukupno / brojevi.length;
+            };
+            return objekat;
+        })([24, 152, 325, 18, 5265, 255]);
+
+        console.log(izracunajProsek.prosek());
+
+
+
+
+        var mojModul = (function (nizOcena) {
+            var ocene = nizOcena; // javna promenljiva
+            function vratiBroj() { // privatna metoda
+                var manji = ocene.filter(function (broj) {
+                    return broj < 10;
+                });
+                return "Vrati brojeve manje od deset: " + manji.length;
+            };
+
+            function poredjaj() { // javna metoda
+                var ukupno = ocene.sort(function (a, b) {
+                    return b - a;
+                });
+                return "Poredjaj od najvećeg broja: " + ukupno;
+            };
+
+            return { // biramo javne metode
+                ocene: ocene,   // preko ključeva objekta odlučujemo šta želimo da bude javno
+                poredjaj: poredjaj,  // u drugoj koloni ocene je promenljiva a poredjaj je metod
+            };
+        })([10, 5, 6, 9, 10, 7]);
+
+        console.log(mojModul.ocene);
+        console.log(mojModul.poredjaj());
+        // console.log(mojModul.vratiBroj());
+
+
+
+
+
+
+        let tekst = "";
+        let student = {
+            ime: "Petar",
+            fakultet: "FON",
+            prosekOcena: 8.6
+        };
+
+        let x;
+        for (x in student) {
+            tekst += student[x] + "\n";
+        }
+
+        console.log(tekst);
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
